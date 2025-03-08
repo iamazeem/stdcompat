@@ -1,6 +1,7 @@
 FROM ubuntu
 ARG UID=1000
-RUN apt-get update && apt-get install --yes autoconf automake unzip aspcud rsync \
+RUN apt-get update && apt-get install -y apt-transport-https && \
+    apt-get install --yes autoconf automake unzip aspcud rsync \
     git mercurial darcs wget build-essential sudo vim curl
 RUN useradd -m -s /bin/bash ci --uid=${UID}
 RUN echo ci ALL=\(ALL\) NOPASSWD:ALL >/etc/sudoers
